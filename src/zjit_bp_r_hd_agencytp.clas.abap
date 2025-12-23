@@ -1,0 +1,5 @@
+CLASS zjit_bp_r_hd_agencytp DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF zjit_r_hd_agencytp.
+ENDCLASS.
+
+CLASS zjit_bp_r_hd_agencytp IMPLEMENTATION.
+ENDCLASS.

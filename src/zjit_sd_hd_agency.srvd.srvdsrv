@@ -1,0 +1,6 @@
+@EndUserText.label: 'Hierarchy Demo Self'
+@ObjectModel.leadingEntity.name: 'ZJIT_C_HD_AgencyTP'
+define service ZJIT_SD_HD_AGENCY {
+  expose ZJIT_C_HD_AgencyTP   as Agency;
+  expose ZJIT_C_HD_EmployeeTP as Employee;
+}

@@ -1,0 +1,75 @@
+managed;
+strict ( 2 );
+with draft;
+
+define behavior for ZJIT_R_HD_AgencyTP alias Agency
+implementation in class zit_bp_r_hd_agencytp unique
+early numbering
+persistent table /dmo/agency_a_hd
+draft table zjit_agency_d
+lock master
+total etag LastChangedAt
+authorization master ( none )
+//etag master <field_name>
+{
+  create ( authorization : global );
+  update;
+  delete;
+  field ( readonly ) Agency;
+  association _Employee { create; with draft; }
+
+  draft action Resume;
+  draft action Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft determine action Prepare;
+
+  mapping for /dmo/agency_a_hd
+    {
+      Agency             = agency;
+      Name               = name;
+      Street             = street;
+      PostalCode         = postal_code;
+      City               = city;
+      CountryCode        = country_code;
+      PhoneNumber        = phone_number;
+      EMailAddress       = email_address;
+      WebAddress         = web_address;
+      LocalCreatedBy     = local_created_by;
+      LocalCreatedAt     = local_created_at;
+      LocalLastChangedBy = local_last_changed_by;
+      LocalLastChangedAt = local_last_changed_at;
+      LastChangedAt      = last_changed_at;
+    }
+
+}
+
+define behavior for ZJIT_R_HD_EmployeeTP alias Employee
+implementation in class zjit_bp_r_hd_agencytp unique
+persistent table /dmo/employ_a_hd
+draft table zjit_employ_d
+lock dependent by _Agency
+authorization dependent by _Agency
+etag master LocalLastChangedAt
+{
+  update;
+  delete;
+  field ( readonly ) Agency, Employee;
+  association _Agency { with draft; }
+
+  mapping for /dmo/employ_a_hd
+    {
+      Agency             = agency;
+      Employee           = employee;
+      FirstName          = first_name;
+      LastName           = last_name;
+      Salary             = salary;
+      SalaryCurrency     = salary_currency;
+      Manager            = manager;
+      SiblingOrderNumber = sibling_order_number;
+      LocalCreatedBy     = local_created_by;
+      LocalCreatedAt     = local_created_at;
+      LocalLastChangedBy = local_last_changed_by;
+      LocalLastChangedAt = local_last_changed_at;
+    }
+}

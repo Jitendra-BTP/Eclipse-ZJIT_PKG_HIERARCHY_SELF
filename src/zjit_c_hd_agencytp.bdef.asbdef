@@ -1,0 +1,26 @@
+projection;
+strict ( 2 );
+use draft;
+
+define behavior for ZJIT_C_HD_AgencyTP alias Agency
+{
+  use create;
+  use update;
+  use delete;
+
+  use action Resume;
+  use action Edit;
+  use action Activate;
+  use action Discard;
+  use action Prepare;
+
+  use association _Employee { create; with draft; }
+}
+
+define behavior for ZJIT_C_HD_EmployeeTP alias Employee
+{
+  use update;
+  use delete;
+
+  use association _Agency { with draft; }
+}
