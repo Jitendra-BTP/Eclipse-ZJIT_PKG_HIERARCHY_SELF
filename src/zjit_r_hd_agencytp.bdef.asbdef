@@ -10,7 +10,7 @@ draft table zjit_agency_d
 lock master
 total etag LastChangedAt
 authorization master ( none )
-//etag master <field_name>
+etag master LocalLastChangedAt
 {
   create ( authorization : global );
   update;
@@ -46,6 +46,7 @@ authorization master ( none )
 
 define behavior for ZJIT_R_HD_EmployeeTP alias Employee
 implementation in class zjit_bp_r_hd_agencytp unique
+early numbering
 persistent table /dmo/employ_a_hd
 draft table zjit_employ_d
 lock dependent by _Agency

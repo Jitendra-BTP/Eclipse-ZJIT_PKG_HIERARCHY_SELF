@@ -3,7 +3,7 @@
 
 define view entity zjit_i_hd_agency
   as select from /dmo/agency_a_hd as Agency
-//  association of exact one to many ZJIT_I_Employee_HD as _Employee on $projection.Agency = _Employee.Agency
+//  association of exact one to many zjit_i_hd_employee as _Employee on $projection.Agency = _Employee.Agency
 
   association of one       to one I_Country           as _Country  on $projection.CountryCode = _Country.Country
 

@@ -4,10 +4,10 @@
 define view entity zjit_i_hd_employee
   as select from /dmo/employ_a_hd
 
-//  association of many to one ZJIT_I_Agency_HD    as _Agency   on  $projection.Agency = _Agency.Agency
-//  association of many to one ZJIT_I_Employee_HD  as _Manager  on  $projection.Agency  = _Manager.Agency
+//  association of many to one zjit_i_hd_agency    as _Agency   on  $projection.Agency = _Agency.Agency
+//  association of many to one zjit_i_hd_employee  as _Manager  on  $projection.Agency  = _Manager.Agency
 //                                                              and $projection.Manager = _Manager.Employee
-//  association of many to many ZJIT_I_Employee_HD as _Employee on  $projection.Agency   = _Employee.Agency
+//  association of many to many zjit_i_hd_employee as _Employee on  $projection.Agency   = _Employee.Agency
 //                                                              and $projection.Employee = _Employee.Manager
   association         to one I_Currency          as _Currency on  $projection.SalaryCurrency = _Currency.Currency
 {
