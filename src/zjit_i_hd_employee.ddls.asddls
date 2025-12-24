@@ -4,9 +4,9 @@
 define view entity zjit_i_hd_employee
   as select from /dmo/employ_a_hd
 
-//  association of many to one zjit_i_hd_agency    as _Agency   on  $projection.Agency = _Agency.Agency
-//  association of many to one zjit_i_hd_employee  as _Manager  on  $projection.Agency  = _Manager.Agency
-//                                                              and $projection.Manager = _Manager.Employee
+  association of many to one zjit_i_hd_agency    as _Agency   on  $projection.Agency = _Agency.Agency
+  association of many to one zjit_i_hd_employee  as _Manager  on  $projection.Agency  = _Manager.Agency
+                                                              and $projection.Manager = _Manager.Employee
 //  association of many to many zjit_i_hd_employee as _Employee on  $projection.Agency   = _Employee.Agency
 //                                                              and $projection.Employee = _Employee.Manager
   association         to one I_Currency          as _Currency on  $projection.SalaryCurrency = _Currency.Currency
@@ -25,8 +25,8 @@ define view entity zjit_i_hd_employee
       local_last_changed_by as LocalLastChangedBy,
       local_last_changed_at as LocalLastChangedAt,
 
-//      _Agency,
-//      _Manager,
+      _Agency,
+      _Manager,
 //      _Employee,
       _Currency
 }
